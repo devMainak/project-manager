@@ -95,7 +95,7 @@ const deleteTaskById = async (taskId) => {
 exports.deleteTask = async (req, res) => {
   const taskId = req.params.taskId;
   try {
-    const deletedTask = deleteTaskById(taskId);
+    const deletedTask = await deleteTaskById(taskId);
     if (deletedTask) {
       res
         .status(200)

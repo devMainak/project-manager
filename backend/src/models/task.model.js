@@ -13,6 +13,7 @@ const taskSchema = new mongoose.Schema(
       ref: "project-user",
       required: true,
     },
+    description: { type: String },
     priority: {
       type: String,
       enum: ["High", "Low", "Medium"],
@@ -27,6 +28,6 @@ const taskSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Task = mongoose.model("Task", taskSchema);
+const Task = mongoose.model("project-tasks", taskSchema);
 
 module.exports = Task;

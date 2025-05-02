@@ -17,7 +17,7 @@ exports.createProject = async (req, res) => {
   try {
     const ownerProjects = await Project.find({ owner: project.owner });
     if (ownerProjects.length === 4) {
-      return res.status(401).json({ message: "Only" });
+      return res.status(400).json({ message: "Only four projects per user" });
     }
 
     const savedProject = await addProject(project);
@@ -37,7 +37,7 @@ exports.createProject = async (req, res) => {
 // Update projects
 exports.updateProject = async (req, res) => {
   try {
-    const { project } = req.body;
+    const project = req.body;
     const updatedProject = await Project.findByIdAndUpdate(
       project._id,
       project,
@@ -53,9 +53,9 @@ exports.updateProject = async (req, res) => {
 };
 
 // Read all projects
-const readProjects = async () => {
+const readProjects = async (userId) => {
   try {
-    const projects = await Project.find();
+    const projects = await Project.find({ owner: userId });
     return projects;
   } catch (error) {
     throw error;
@@ -64,7 +64,8 @@ const readProjects = async () => {
 
 exports.getProjects = async (req, res) => {
   try {
-    const projects = await readProjects();
+    const { userId } = req.params;
+    const projects = await readProjects(userId);
     if (projects.length > 0) {
       res
         .status(200)
