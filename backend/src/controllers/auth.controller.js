@@ -61,7 +61,7 @@ exports.login = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   try {
-    const userId = req.user._id;
+    const userId = req.user.id;
     const user = await User.findById(userId);
     if (user) {
       res.status(200).json({
@@ -69,7 +69,7 @@ exports.getUser = async (req, res) => {
         user,
       });
     } else {
-      res.status(404).json({ message: "User details not found" });
+      res.status(401).json({ message: "User details not found" });
     }
   } catch (error) {
     console.error(error);
