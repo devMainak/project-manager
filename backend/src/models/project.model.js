@@ -9,6 +9,7 @@ const projectSchema = new mongoose.Schema({
     ref: "project-user",
     required: true,
   },
+  accessList: [{ type: mongoose.Schema.Types.ObjectId, ref: "project-user" }],
   createdAt: { type: Date, default: Date.now },
 });
 
