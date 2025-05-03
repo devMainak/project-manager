@@ -64,6 +64,8 @@
 ---
 
 ---
+
+## ⚙️ env varibales for backend
 ```
   PORT=5000
   MONGODB=your_mongodb_connection_string
