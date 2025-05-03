@@ -7,7 +7,7 @@ export const signupUserAsync = createAsyncThunk(
   async (newUser, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/signup",
+        "https://project-manager-phi-gilt.vercel.app/auth/signup",
         newUser
       );
       return response.data;
@@ -22,7 +22,7 @@ export const loginUserAsync = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/login",
+        "https://project-manager-phi-gilt.vercel.app/auth/login",
         credentials
       );
       return response.data;
