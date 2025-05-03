@@ -3,7 +3,7 @@ import store from "../app/store";
 import { logout } from "../features/auth/authSilce";
 
 const apiClient = axios.create({
-  baseURL: "https://project-manager-phi-gilt.vercel.app/",
+  baseURL: "https://project-manager-phi-gilt.vercel.app",
   withCredentials: true,
 });
 
