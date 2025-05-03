@@ -63,6 +63,14 @@
 
 ---
 
+---
+```
+  PORT=5000
+  MONGODB=your_mongodb_connection_string
+  SECRET_KEY=your_cookie_secret
+  JWT_ACCESS_SECRET=your_jwt_secret
+```
+---
 ## 🛠 Installation
 
 ### 🔹 Clone the Repository
