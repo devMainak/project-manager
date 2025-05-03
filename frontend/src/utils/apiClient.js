@@ -4,7 +4,6 @@ import { logout } from "../features/auth/authSilce";
 
 const apiClient = axios.create({
   baseURL: "https://project-manager-phi-gilt.vercel.app",
-  withCredentials: true,
 });
 
 apiClient.interceptors.request.use(
@@ -22,8 +21,8 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (
-      (error.response && error.response.status === 401) ||
-      error.response.status === 403
+      error.response &&
+      (error.response.status === 401 || error.response.status === 403)
     ) {
       store.dispatch(logout());
     }
