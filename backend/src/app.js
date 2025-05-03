@@ -1,4 +1,3 @@
-// src/app.js
 const express = require("express");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
@@ -18,6 +17,10 @@ app.use(cookieParser());
 
 // Initialize database
 initializeDatabase();
+
+app.get("/", (req, res) => {
+  res.send("Gotask - Backend server");
+});
 
 app.use("/auth", require("./routes/auth.routes"));
 app.use("/tasks", require("./routes/task.routes"));
