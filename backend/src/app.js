@@ -6,12 +6,7 @@ const initializeDatabase = require("./config/db.config");
 
 const app = express();
 
-const corsOptions = {
-  origin: "https://gotask-frontend.vercel.app",
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(cookieParser());
 
