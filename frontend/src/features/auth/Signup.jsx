@@ -35,7 +35,7 @@ const Signup = () => {
       name: fullName,
       email,
       password,
-      country: selectedCountry,
+      country: selectedCountry.label,
     };
     try {
       const resultAction = await dispatch(signupUserAsync(newUser));
@@ -115,9 +115,15 @@ const Signup = () => {
                 >
                   Create New Account
                 </button>
-                
-                  <p className="text-center fw-semibold">Already have an account? <span><Link className="text-danger" to="/">Log in</Link></span></p>
-                
+
+                <p className="text-center fw-semibold">
+                  Already have an account?{" "}
+                  <span>
+                    <Link className="text-danger" to="/">
+                      Log in
+                    </Link>
+                  </span>
+                </p>
               </form>
             </div>
           </div>
