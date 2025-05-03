@@ -91,7 +91,6 @@ const tasksSlice = createSlice({
 
     builder.addCase(deleteTaskAsync.fulfilled, (state, action) => {
       const { deletedTask } = action.payload;
-      console.log(deletedTask);
       state.tasks = state.tasks.filter((task) => task._id !== deletedTask._id);
     });
   },
